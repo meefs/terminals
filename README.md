@@ -7,8 +7,8 @@ renaissance (Ink · Bubble Tea · Ratatui · Textual), and opinionated guidance 
 **▶ Live:** https://meefs.github.io/terminals/
 
 ## What it is
-A single, self-contained `index.html` — no build step, no dependencies. It uses the **MARPAT** design
-system: a pixel-camo background, a frosted-glass content panel, and editorial typography (Fraunces +
+A single, self-contained `index.html` based on the **MARPAT** design
+system by [meefs](https://github.com/meefs) : a pixel-camo background, a frosted-glass content panel, and editorial typography (Fraunces +
 Newsreader + IBM Plex Mono). Controls in the top-right (persisted to `localStorage`):
 
 - **Theme** — Navy / Army / Arctic
