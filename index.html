@@ -329,6 +329,45 @@ npm i terminal-image                         <span class="c"># Node, images only
   <h4>The verdict in one breath</h4>
   <p><a href="https://github.com/hpjansson/chafa" target="_blank" rel="noopener"><strong>chafa</strong></a> is the modern <code>libcaca</code> — full stop. But "terminal rendering in 2026" is a much bigger story: <strong>GPU terminals + Kitty/Sixel protocols</strong> for real pixels, the <strong>octant/braille</strong> Unicode ceiling for fallback, and a <strong>per-language TUI-framework boom</strong> (<a href="https://github.com/charmbracelet/bubbletea" target="_blank" rel="noopener">Bubble&nbsp;Tea</a> / <a href="https://github.com/ratatui/ratatui" target="_blank" rel="noopener">Ratatui</a> / <a href="https://github.com/Textualize/textual" target="_blank" rel="noopener">Textual</a> / <a href="https://github.com/vadimdemedes/ink" target="_blank" rel="noopener">Ink</a>) where most actual "drawing" now happens. libcaca and aalib walked so this could run. 🫡</p>
 
+  <div class="section-head"><div class="chip">8</div><h2>Special cases: shells, multiplexers &amp; the silicon</h2></div>
+  <p>Three things that aren't renderers — but they decide whether your rendering is <em>fast</em>, or <em>works at all</em>. (You asked for the asterisks; here they are.)</p>
+
+  <h3>A · Shells &amp; prompts — they gate your latency, not your pixels</h3>
+  <p>A "slow terminal" is usually a slow <em>prompt</em>. These are shell config, not renderers, but they're where the lag lives. Sortable.</p>
+  <div class="tbl-wrap"><table class="data-table">
+    <thead><tr><th>Tool</th><th>Stars</th><th>Updated</th><th class="nosort">What it is &amp; the catch</th></tr></thead>
+    <tbody>
+      <tr data-repo="starship/starship"><td><a href="https://github.com/starship/starship" target="_blank" rel="noopener"><strong>starship</strong></a> <span class="badge badge-rec">modern pick</span></td><td class="num js-stars" data-v="58371">58.4k</td><td class="js-updated" data-v="">2026-06-15</td><td>Rust, cross-shell, fast. Instant in most repos; only stalls in giant ones.</td></tr>
+      <tr data-repo="romkatv/powerlevel10k"><td><a href="https://github.com/romkatv/powerlevel10k" target="_blank" rel="noopener">powerlevel10k</a></td><td class="num js-stars" data-v="54492">54.5k</td><td class="js-updated" data-v="">2026-06-15</td><td>Zsh theme with <strong>instant-prompt</strong> (&lt;10ms); fastest in huge git repos.</td></tr>
+      <tr data-repo="ohmyzsh/ohmyzsh"><td><a href="https://github.com/ohmyzsh/ohmyzsh" target="_blank" rel="noopener">oh-my-zsh</a></td><td class="num js-stars" data-v="188110">188k</td><td class="js-updated" data-v="">2026-06-15</td><td>Zsh <em>config framework</em>, not a renderer. 300+ plugins → can bloat startup; prune to stay snappy.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="fresh js-fresh">★ &amp; "updated" pulled live.</p>
+  <div class="callout"><p><strong>Pick:</strong> <a href="https://github.com/starship/starship" target="_blank" rel="noopener">starship</a> for cross-shell + speed; <a href="https://github.com/romkatv/powerlevel10k" target="_blank" rel="noopener">powerlevel10k</a> if you live in zsh and want instant-prompt; <a href="https://github.com/ohmyzsh/ohmyzsh" target="_blank" rel="noopener">oh-my-zsh</a> is fine — just pair it with a fast theme and trim plugins.</p></div>
+
+  <h3>B · Multiplexers — the protocol-killers</h3>
+  <p>Run inside <a href="https://github.com/tmux/tmux" target="_blank" rel="noopener">tmux</a> or <a href="https://github.com/zellij-org/zellij" target="_blank" rel="noopener">zellij</a> and your image protocols can vanish — the multiplexer sits between the app and the terminal, so Kitty/Sixel output gets mangled unless you turn on passthrough.</p>
+  <div class="vibes-grid">
+    <a class="vibe-card" href="https://github.com/tmux/tmux" target="_blank" rel="noopener"><span class="go">&#8599;</span><h4>tmux</h4><p>The classic. Needs <code>set -g allow-passthrough on</code> for graphics; older builds still garble Sixel/Kitty.</p></a>
+    <a class="vibe-card" href="https://github.com/zellij-org/zellij" target="_blank" rel="noopener"><span class="go">&#8599;</span><h4>zellij</h4><p>Modern Rust workspace — panes, layouts, plugins. Friendlier defaults, but still verify protocol passthrough.</p></a>
+  </div>
+  <div class="callout callout-warn"><p><strong>Gotcha:</strong> if images render fine bare but break "inside the terminal," suspect tmux/zellij (or SSH) eating the escape sequence — enable passthrough before blaming your renderer.</p></div>
+
+  <h3>C · The silicon — GPU is baseline, TPU isn't a thing</h3>
+  <p>GPU acceleration is now <em>standard</em>, not a differentiator; the interesting axis is the rendering API. <a href="https://github.com/ghostty-org/ghostty" target="_blank" rel="noopener">Ghostty</a>'s custom Zig engine even hits ~2&nbsp;ms key-to-screen. Sortable.</p>
+  <div class="tbl-wrap"><table class="data-table">
+    <thead><tr><th>Terminal</th><th>Lang</th><th class="nosort">GPU API</th><th>Stars</th></tr></thead>
+    <tbody>
+      <tr data-repo="ghostty-org/ghostty"><td><a href="https://github.com/ghostty-org/ghostty" target="_blank" rel="noopener"><strong>Ghostty</strong></a> <span class="badge badge-rec">fastest</span></td><td>Zig</td><td>Metal · OpenGL/Vulkan</td><td class="num js-stars" data-v="56684">56.7k</td></tr>
+      <tr data-repo="alacritty/alacritty"><td><a href="https://github.com/alacritty/alacritty" target="_blank" rel="noopener">Alacritty</a></td><td>Rust</td><td>OpenGL (the OG)</td><td class="num js-stars" data-v="64612">64.6k</td></tr>
+      <tr data-repo="kovidgoyal/kitty"><td><a href="https://github.com/kovidgoyal/kitty" target="_blank" rel="noopener">kitty</a></td><td>C · Python</td><td>OpenGL</td><td class="num js-stars" data-v="">—</td></tr>
+      <tr data-repo="wezterm/wezterm"><td><a href="https://github.com/wezterm/wezterm" target="_blank" rel="noopener">WezTerm</a></td><td>Rust</td><td>OpenGL / WebGPU</td><td class="num js-stars" data-v="">—</td></tr>
+      <tr data-repo="warpdotdev/warp"><td><a href="https://github.com/warpdotdev/warp" target="_blank" rel="noopener">Warp</a></td><td>Rust</td><td>GPU + agentic</td><td class="num js-stars" data-v="61989">62.0k</td></tr>
+    </tbody>
+  </table></div>
+  <p class="fresh js-fresh">★ pulled live.</p>
+  <div class="callout"><p><strong>So is there a TPU/NPU-accelerated terminal? No — and there's no reason for one.</strong> A terminal draws a grid of glyphs plus the odd raster blit; that's trivial for any GPU. TPUs/NPUs are matrix-multiply units built for ML, not text/raster rendering. The only "AI silicon" angle is <a href="https://github.com/warpdotdev/warp" target="_blank" rel="noopener">Warp</a>'s <em>agentic</em> features (LLMs for suggestions/commands) — compute for <em>behavior</em>, not for <em>drawing</em>. "3D terminals" remain novelties, not a category.</p></div>
+
   <hr class="rule">
 
   <div class="section-head"><div class="chip">&#9733;</div><h2>Sources &amp; method</h2></div>

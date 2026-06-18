@@ -18,6 +18,9 @@ REPOS = [
     "patorjk/figlet.js", "bokub/gradient-string", "dominikwilkowski/cfonts",
     "madbence/node-drawille", "jerch/node-sixel", "charmbracelet/bubbletea",
     "charmbracelet/lipgloss", "ratatui/ratatui", "Textualize/rich", "Textualize/textual",
+    "ohmyzsh/ohmyzsh", "romkatv/powerlevel10k", "starship/starship",
+    "alacritty/alacritty", "ghostty-org/ghostty", "kovidgoyal/kitty",
+    "wezterm/wezterm", "warpdotdev/warp",
 ]
 NPM = ["ink", "@xterm/xterm", "blessed", "terminal-kit", "terminal-image",
        "figlet", "gradient-string", "cfonts", "drawille", "sixel"]
