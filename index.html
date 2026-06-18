@@ -29,13 +29,13 @@
   --line:#2d3a37; --muted:#9a9b8f;
   --box:#faf7f1; --box-ink:#22302e; --box-accent:#15706a;
   --wrap-bg:rgba(6,12,24,0.84); --wrap-border:rgba(92,194,182,0.12); --wrap-glow:rgba(92,194,182,0.06);
-  --fs:16px; --lh:1.6;
+  --fs:16px; --lh:1.62;
   --h1:clamp(2rem,5vw,3.1rem); --h2:1.55rem; --h3:1.15rem; --h3-mt:28px;
-  --body-p:28px 16px 40px;
-  --wrap-pt:52px; --wrap-px:38px; --wrap-pb:72px; --wrap-w:860px;
-  --sec-mt:44px; --sec-mb:20px;
-  --p-mb:14px; --call-p:14px 18px; --box-p:24px 28px;
-  --td-p:9px 12px; --step-g:12px;
+  --body-p:28px 18px 40px;
+  --wrap-pt:52px; --wrap-px:46px; --wrap-pb:72px; --wrap-w:1000px;
+  --sec-mt:46px; --sec-mb:20px;
+  --p-mb:15px; --call-p:14px 18px; --box-p:26px 30px;
+  --td-p:9px 13px; --step-g:12px;
 }
 [data-theme="army"] {
   --bg:#0f1209; --ink:#e8e2cc; --card:#1e2610;
@@ -52,22 +52,22 @@
   --wrap-bg:rgba(8,10,14,0.88); --wrap-border:rgba(122,168,196,0.12); --wrap-glow:rgba(122,168,196,0.06);
 }
 [data-size="s"] {
-  --fs:14px; --lh:1.5;
+  --fs:14px; --lh:1.52;
   --h1:clamp(1.6rem,4vw,2.5rem); --h2:1.25rem; --h3:1rem; --h3-mt:20px;
-  --body-p:14px 10px 24px;
-  --wrap-pt:34px; --wrap-px:24px; --wrap-pb:50px; --wrap-w:780px;
-  --sec-mt:30px; --sec-mb:14px;
-  --p-mb:10px; --call-p:10px 14px; --box-p:16px 20px;
-  --td-p:7px 10px; --step-g:8px;
+  --body-p:14px 12px 24px;
+  --wrap-pt:34px; --wrap-px:30px; --wrap-pb:50px; --wrap-w:900px;
+  --sec-mt:32px; --sec-mb:14px;
+  --p-mb:11px; --call-p:10px 14px; --box-p:18px 22px;
+  --td-p:7px 11px; --step-g:8px;
 }
 [data-size="l"] {
-  --fs:19px; --lh:1.75;
+  --fs:19px; --lh:1.78;
   --h1:clamp(2.4rem,6vw,3.8rem); --h2:1.85rem; --h3:1.35rem; --h3-mt:36px;
-  --body-p:38px 20px 56px;
-  --wrap-pt:68px; --wrap-px:52px; --wrap-pb:92px; --wrap-w:940px;
-  --sec-mt:58px; --sec-mb:28px;
-  --p-mb:18px; --call-p:18px 24px; --box-p:32px 38px;
-  --td-p:12px 16px; --step-g:16px;
+  --body-p:38px 22px 56px;
+  --wrap-pt:68px; --wrap-px:60px; --wrap-pb:92px; --wrap-w:1120px;
+  --sec-mt:60px; --sec-mb:28px;
+  --p-mb:19px; --call-p:18px 24px; --box-p:34px 40px;
+  --td-p:12px 17px; --step-g:16px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 #camo-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.88;image-rendering:pixelated;image-rendering:crisp-edges}
@@ -118,14 +118,22 @@ pre b{color:var(--accent-bright);font-weight:600}
 .anchor h3{color:var(--box-ink);margin:0 0 10px;font-size:1.35rem}
 .anchor p{color:var(--box-ink)}
 .anchor strong{color:var(--box-accent)}
-.tbl-wrap{overflow-x:auto;margin:16px 0 24px}
+.anchor a{color:var(--box-accent);border-bottom-color:color-mix(in srgb,var(--box-accent) 40%,transparent)}
+.tbl-wrap{overflow-x:auto;margin:16px 0 6px}
 table{width:100%;border-collapse:collapse;font-size:.92em}
 th{font-family:"IBM Plex Mono",monospace;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding:var(--td-p);border-bottom:2px solid var(--accent);text-align:left;white-space:nowrap}
 td{padding:var(--td-p);border-bottom:1px solid var(--line);vertical-align:middle}
 tr:last-child td{border-bottom:none}
-tr:hover td{background:color-mix(in srgb,var(--accent) 4%,transparent)}
-.best{color:var(--accent);font-weight:600}
+tbody tr:hover td{background:color-mix(in srgb,var(--accent) 5%,transparent)}
+th.sortable{cursor:pointer;user-select:none}
+th.sortable:hover{color:var(--accent-bright)}
+th.sortable::after{content:'\2195';opacity:.3;margin-left:5px;font-size:.9em}
+th.sortable[data-dir="asc"]::after{content:'\2191';opacity:1}
+th.sortable[data-dir="desc"]::after{content:'\2193';opacity:1}
 .num{font-family:"IBM Plex Mono",monospace;font-size:.92em;white-space:nowrap}
+.js-updated{font-family:"IBM Plex Mono",monospace;font-size:.86em;color:var(--muted);white-space:nowrap}
+.fresh{font-family:"IBM Plex Mono",monospace;font-size:.66rem;color:var(--muted);letter-spacing:.04em;margin:0 0 24px;display:flex;align-items:center;gap:7px}
+.fresh::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green) 22%,transparent)}
 .badge{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.58rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:4px;margin-left:6px;vertical-align:middle}
 .badge-best{background:var(--accent-soft);color:var(--accent-ink)}
 .badge-warn{background:var(--amber-soft);color:var(--amber)}
@@ -142,17 +150,21 @@ tr:hover td{background:color-mix(in srgb,var(--accent) 4%,transparent)}
 .step-num{width:26px;height:26px;border-radius:50%;background:var(--accent-soft);color:var(--accent-ink);font-family:"IBM Plex Mono",monospace;font-size:.75rem;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .step-text{font-size:.95em;color:var(--ink);line-height:1.5}
 .step-text b{color:var(--accent-ink)}
-.vibes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin:16px 0 24px}
-.vibe-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
-.vibe-card h4{margin:0 0 4px}
-.vibe-card p{font-size:.86em;color:var(--muted);margin:0}
-.src{font-family:"IBM Plex Mono",monospace;font-size:.74rem;line-height:1.9;color:var(--muted)}
+.vibes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:12px;margin:16px 0 24px}
+a.vibe-card{display:block;position:relative;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:13px 15px 14px;transition:background .16s,border-color .16s,transform .12s,box-shadow .16s}
+a.vibe-card h4{margin:0 0 4px;color:var(--accent);transition:color .16s}
+a.vibe-card p{font-size:.86em;color:var(--muted);margin:0;transition:color .16s}
+a.vibe-card .go{position:absolute;top:11px;right:13px;font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--muted);opacity:.45;transition:opacity .16s,color .16s}
+a.vibe-card:hover{background:var(--accent);border-color:var(--accent-bright);transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.4)}
+a.vibe-card:hover h4,a.vibe-card:hover p,a.vibe-card:hover .go{color:var(--bg);opacity:1}
+.src{font-family:"IBM Plex Mono",monospace;font-size:.74rem;line-height:1.95;color:var(--muted)}
+.src a{word-break:break-word}
 @media print{
   body{background:#fff;color:#000;font-size:11pt}
   #camo-canvas,#controls{display:none}
   .wrap{padding:0;max-width:100%;background:none;backdrop-filter:none;border:none;box-shadow:none}
   .anchor{background:#fff;color:#000;border:1.5px solid #000}
-  .callout,.callout-warn,.vibe-card,pre{background:#fff;border:1px solid #ccc}
+  .callout,.callout-warn,a.vibe-card,pre{background:#fff;border:1px solid #ccc;color:#000}
   *{color:#000!important}
   section,.anchor,table,pre{break-inside:avoid}
 }
@@ -187,50 +199,51 @@ tr:hover td{background:color-mix(in srgb,var(--accent) 4%,transparent)}
   <div class="kicker">Field Report · Terminal Rendering</div>
   <h1>Drawing in the Terminal, 2026</h1>
   <p class="subtitle">What replaced libcaca — and the quiet graphics renaissance that came with it.</p>
-  <p class="meta">COMPILED BY CLAUDE (OPUS&nbsp;4.8) &nbsp;·&nbsp; 2026-06-18 &nbsp;·&nbsp; PRIMARY SOURCES: GITHUB&nbsp;+&nbsp;NPM</p>
+  <p class="meta">COMPILED BY CLAUDE (OPUS&nbsp;4.8) &nbsp;·&nbsp; 2026-06-18 &nbsp;·&nbsp; SOURCES: GITHUB&nbsp;+&nbsp;NPM (LIVE)</p>
 
   <div class="anchor">
     <div class="a-kicker">The one-line answer</div>
-    <h3>The modern <code>libcaca</code> is <strong>chafa</strong>.</h3>
-    <p>But the bigger truth is that the terminal <strong>stopped pretending</strong>. The frontier moved from "approximate a picture with characters" to <strong>real pixels over a wire protocol</strong> (Kitty / Sixel), with fancy Unicode glyphs as the graceful fallback. <code>chafa</code> wins precisely because it spans the whole ladder — protocol when it can, character art when it can't. <code>libcaca</code> / <code>aalib</code> are now history exhibits, not tools to build on.</p>
+    <h3>The modern <code>libcaca</code> is <a href="https://github.com/hpjansson/chafa" target="_blank" rel="noopener"><strong>chafa</strong></a>.</h3>
+    <p>But the bigger truth is that the terminal <strong>stopped pretending</strong>. The frontier moved from "approximate a picture with characters" to <strong>real pixels over a wire protocol</strong> (<a href="https://sw.kovidgoyal.net/kitty/graphics-protocol/" target="_blank" rel="noopener">Kitty</a> / <a href="https://en.wikipedia.org/wiki/Sixel" target="_blank" rel="noopener">Sixel</a>), with fancy Unicode glyphs as the graceful fallback. <a href="https://github.com/hpjansson/chafa" target="_blank" rel="noopener">chafa</a> wins precisely because it spans the whole ladder. <a href="https://github.com/cacalabs/libcaca" target="_blank" rel="noopener">libcaca</a> / aalib are now history exhibits, not tools to build on.</p>
   </div>
 
   <hr class="rule">
 
   <div class="section-head"><div class="chip">1</div><h2>The lineage</h2></div>
-  <p><strong>aalib</strong> (1997, monochrome ASCII) → <strong>libcaca</strong> (2002, "Colour ASCII Art" + a <code>cacaview</code>/<code>img2txt</code> CLI) defined the genre: take an image, map cells to characters by luminance, dither in 16 colors. Brilliant for its era — and effectively frozen since. <code>cacalabs/libcaca</code>'s last release is <code>v0.99.beta20</code> from <strong>2021</strong>; the repo's own description is a literal 💩 emoji. It still ships in distros, but nobody starts new work on it.</p>
+  <p>aalib (1997, monochrome ASCII) &rarr; <a href="https://github.com/cacalabs/libcaca" target="_blank" rel="noopener">libcaca</a> (2002, "Colour ASCII Art" + a <code>cacaview</code>/<code>img2txt</code> CLI) defined the genre: take an image, map cells to characters by luminance, dither in 16 colors. Brilliant for its era — and effectively frozen since. <a href="https://github.com/cacalabs/libcaca" target="_blank" rel="noopener">libcaca</a>'s last release is <code>v0.99.beta20</code> from <strong>2021</strong>; the repo's own description is a literal 💩 emoji. It still ships in distros, but nobody starts new work on it.</p>
   <p>What changed underneath it: <strong>24-bit truecolor</strong> went mainstream, Unicode kept minting denser block glyphs, GPUs got into terminals, and three <em class="q">image protocols</em> matured. The successors split along those lines.</p>
 
   <div class="section-head"><div class="chip">2</div><h2>Image → terminal: the direct descendants</h2></div>
-  <p>If you mean <em class="q">"a tool/library that turns a PNG/GIF/video into terminal output"</em> — the <code>img2txt</code> lineage — this is the table. Stars and last-push are from GitHub on report date.</p>
-  <div class="tbl-wrap"><table>
-    <thead><tr><th>Project</th><th>Lang</th><th>Stars</th><th>Pulse</th><th>What it is</th></tr></thead>
+  <p>If you mean <em class="q">"a tool/library that turns a PNG/GIF/video into terminal output"</em> — the <code>img2txt</code> lineage — this is the table. <strong>Click any column header to sort.</strong></p>
+  <div class="tbl-wrap"><table class="data-table">
+    <thead><tr><th>Project</th><th>Lang</th><th>Stars</th><th>Updated</th><th class="nosort">What it is</th></tr></thead>
     <tbody>
-      <tr><td><strong>chafa</strong> <span class="badge badge-rec">the answer</span><br><span class="num">hpjansson/chafa</span></td><td>C</td><td class="num best">4.9k</td><td>v1.18.2 · Jun&nbsp;'26</td><td>CLI <em>+</em> <code>libchafa</code>. Emits Kitty/Sixel/iTerm2 <em>and</em> the richest char art (incl. octants). The drop-in modern libcaca.</td></tr>
-      <tr><td><strong>notcurses</strong><br><span class="num">dankamongmen/notcurses</span></td><td>C</td><td class="num">4.6k</td><td>active</td><td>"Blingful" character-graphics + full-screen TUI library. The <em>library</em>-shaped successor; blits images/video.</td></tr>
-      <tr><td><strong>timg</strong><br><span class="num">hzeller/timg</span></td><td>C++</td><td class="num">2.7k</td><td>active</td><td>Image <em>and</em> video/GIF viewer. Kitty/Sixel/iTerm2 + half-blocks. Excellent quality.</td></tr>
-      <tr><td><strong>viu</strong><br><span class="num">atanunq/viu</span></td><td>Rust</td><td class="num">3.2k</td><td>active</td><td>Simple, fast viewer (iTerm/Kitty native). Built on the <code>viuer</code> crate you can embed.</td></tr>
-      <tr><td><strong>catimg</strong><br><span class="num">posva/catimg</span></td><td>C</td><td class="num">1.6k</td><td>active</td><td>"Insanely fast." Half-block Unicode, zero fuss.</td></tr>
-      <tr><td><strong>tiv</strong><br><span class="num">stefanhaustein/&#8203;TerminalImageViewer</span></td><td>C++</td><td class="num">1.7k</td><td>active</td><td>Clever per-cell glyph selection with RGB. Pure-Unicode, very portable.</td></tr>
-      <tr><td>ascii-image-converter <span class="badge badge-warn">slowing</span><br><span class="num">TheZoraiz/…</span></td><td>Go</td><td class="num">3.4k</td><td>2024</td><td>ASCII + braille art focus. Popular, but last release 2022 — momentum fading.</td></tr>
-      <tr><td><strong>ueberzugpp</strong><br><span class="num">jstkdng/ueberzugpp</span></td><td>C++</td><td class="num">1.3k</td><td>active</td><td>Different trick: <em>overlays</em> true images above a TUI (X11/Wayland/Kitty). Powers file-manager previews (ranger/lf/yazi).</td></tr>
-      <tr><td>libcaca <span class="badge badge-dead">legacy</span><br><span class="num">cacalabs/libcaca</span></td><td>C</td><td class="num">0.7k</td><td>rel. 2021</td><td>The original. Maintenance-only. Respect it; don't build on it.</td></tr>
+      <tr data-repo="hpjansson/chafa"><td><a href="https://github.com/hpjansson/chafa" target="_blank" rel="noopener"><strong>chafa</strong></a> <span class="badge badge-rec">the answer</span></td><td>C</td><td class="num js-stars" data-v="4936">4,936</td><td class="js-updated" data-v="">2026-06-09</td><td>CLI <em>+</em> <code>libchafa</code>. Emits Kitty/Sixel/iTerm2 <em>and</em> the richest char art (incl. octants). The drop-in modern libcaca.</td></tr>
+      <tr data-repo="dankamongmen/notcurses"><td><a href="https://github.com/dankamongmen/notcurses" target="_blank" rel="noopener"><strong>notcurses</strong></a></td><td>C</td><td class="num js-stars" data-v="4578">4,578</td><td class="js-updated" data-v="">2026-05-18</td><td>"Blingful" character-graphics + full-screen TUI library. The <em>library</em>-shaped successor; blits images/video.</td></tr>
+      <tr data-repo="hzeller/timg"><td><a href="https://github.com/hzeller/timg" target="_blank" rel="noopener"><strong>timg</strong></a></td><td>C++</td><td class="num js-stars" data-v="2668">2,668</td><td class="js-updated" data-v="">2026-02-19</td><td>Image <em>and</em> video/GIF viewer. Kitty/Sixel/iTerm2 + half-blocks. Excellent quality.</td></tr>
+      <tr data-repo="atanunq/viu"><td><a href="https://github.com/atanunq/viu" target="_blank" rel="noopener"><strong>viu</strong></a></td><td>Rust</td><td class="num js-stars" data-v="3218">3,218</td><td class="js-updated" data-v="">2025-12-15</td><td>Simple, fast viewer (iTerm/Kitty native). Built on the <code>viuer</code> crate you can embed.</td></tr>
+      <tr data-repo="posva/catimg"><td><a href="https://github.com/posva/catimg" target="_blank" rel="noopener"><strong>catimg</strong></a></td><td>C</td><td class="num js-stars" data-v="1559">1,559</td><td class="js-updated" data-v="">2026-04-07</td><td>"Insanely fast." Half-block Unicode, zero fuss.</td></tr>
+      <tr data-repo="stefanhaustein/TerminalImageViewer"><td><a href="https://github.com/stefanhaustein/TerminalImageViewer" target="_blank" rel="noopener"><strong>tiv</strong></a></td><td>C++</td><td class="num js-stars" data-v="1681">1,681</td><td class="js-updated" data-v="">2026-06-03</td><td>Clever per-cell glyph selection with RGB. Pure-Unicode, very portable.</td></tr>
+      <tr data-repo="TheZoraiz/ascii-image-converter"><td><a href="https://github.com/TheZoraiz/ascii-image-converter" target="_blank" rel="noopener">ascii-image-converter</a> <span class="badge badge-warn">slowing</span></td><td>Go</td><td class="num js-stars" data-v="3377">3,377</td><td class="js-updated" data-v="">2024-04-14</td><td>ASCII + braille art focus. Popular, but last release 2022 — momentum fading.</td></tr>
+      <tr data-repo="jstkdng/ueberzugpp"><td><a href="https://github.com/jstkdng/ueberzugpp" target="_blank" rel="noopener"><strong>ueberzugpp</strong></a></td><td>C++</td><td class="num js-stars" data-v="1291">1,291</td><td class="js-updated" data-v="">2026-05-18</td><td>Different trick: <em>overlays</em> true images above a TUI. Powers file-manager previews (ranger/lf/yazi).</td></tr>
+      <tr data-repo="cacalabs/libcaca"><td><a href="https://github.com/cacalabs/libcaca" target="_blank" rel="noopener">libcaca</a> <span class="badge badge-dead">legacy</span></td><td>C</td><td class="num js-stars" data-v="675">675</td><td class="js-updated" data-v="">2026-04-19</td><td>The original. Maintenance-only. Respect it; don't build on it.</td></tr>
     </tbody>
   </table></div>
+  <p class="fresh js-fresh">★ counts &amp; "updated" are pulled live from GitHub.</p>
 
   <div class="section-head"><div class="chip">3</div><h2>The two things that actually changed</h2></div>
 
   <h3>A · Graphics protocols — the real "modern rendering"</h3>
-  <p>Terminals can now stream actual raster images into the grid. Three protocols, in rough order of where the momentum is:</p>
+  <p>Terminals can now stream actual raster images into the grid. Three protocols, in rough order of momentum (hover a card &amp; click to read the spec):</p>
   <div class="vibes-grid">
-    <div class="vibe-card"><h4>Kitty Graphics</h4><p>The emerging <em>standard</em>. PNG/animation, placement, z-index. Supported by kitty, WezTerm, Ghostty, Konsole. Target this first.</p></div>
-    <div class="vibe-card"><h4>Sixel</h4><p>1980s DEC format, resurgent. The broad-compat <em>fallback</em>: xterm, foot, mlterm, WezTerm, Konsole, Windows Terminal.</p></div>
-    <div class="vibe-card"><h4>iTerm2 inline</h4><p>Base64-an-image escape. macOS/iTerm2 + WezTerm. Simple; narrower reach.</p></div>
+    <a class="vibe-card" href="https://sw.kovidgoyal.net/kitty/graphics-protocol/" target="_blank" rel="noopener"><span class="go">&#8599;</span><h4>Kitty Graphics</h4><p>The emerging <em>standard</em>. PNG/animation, placement, z-index. Supported by kitty, WezTerm, Ghostty, Konsole. Target this first.</p></a>
+    <a class="vibe-card" href="https://en.wikipedia.org/wiki/Sixel" target="_blank" rel="noopener"><span class="go">&#8599;</span><h4>Sixel</h4><p>1980s DEC format, resurgent. The broad-compat <em>fallback</em>: xterm, foot, mlterm, WezTerm, Konsole, Windows Terminal.</p></a>
+    <a class="vibe-card" href="https://iterm2.com/documentation-images.html" target="_blank" rel="noopener"><span class="go">&#8599;</span><h4>iTerm2 inline</h4><p>Base64-an-image escape. macOS/iTerm2 + WezTerm. Simple; narrower reach.</p></a>
   </div>
-  <p>You rarely implement these by hand — you let <code>chafa</code>, <code>timg</code>, <code>terminal-image</code> or a TUI lib probe the terminal and pick. To actually <em>see</em> pixels you need a capable emulator (see §6).</p>
+  <p>You rarely implement these by hand — you let <a href="https://github.com/hpjansson/chafa" target="_blank" rel="noopener">chafa</a>, <a href="https://github.com/hzeller/timg" target="_blank" rel="noopener">timg</a>, <a href="https://github.com/sindresorhus/terminal-image" target="_blank" rel="noopener">terminal-image</a> or a TUI lib probe the terminal and pick. To actually <em>see</em> pixels you need a capable emulator (see §6).</p>
 
   <h3>B · The character-cell resolution ladder kept climbing</h3>
-  <p>When there's no protocol (SSH to a basic box, CI logs, a retro vibe), you fake pixels with block glyphs. Unicode keeps adding denser ones — each step doubles how many "sub-pixels" fit in one character cell:</p>
+  <p>When there's no protocol (SSH to a basic box, CI logs, a retro vibe), you fake pixels with block glyphs. Unicode keeps adding denser ones — each step doubles the "sub-pixels" per character cell:</p>
   <div class="tbl-wrap"><table>
     <thead><tr><th>Glyph set</th><th>Sub-cells</th><th>Since</th><th>Note</th></tr></thead>
     <tbody>
@@ -238,53 +251,58 @@ tr:hover td{background:color-mix(in srgb,var(--accent) 4%,transparent)}
       <tr><td>Half blocks <code>&#9600;</code></td><td>2&times;1</td><td>legacy</td><td>fg+bg = 2 color pixels/cell</td></tr>
       <tr><td>Quadrants <code>&#9631;</code></td><td>2&times;2</td><td>legacy</td><td>4 sub-cells</td></tr>
       <tr><td>Sextants</td><td>2&times;3</td><td>Unicode 13 (2020)</td><td>"Symbols for Legacy Computing"</td></tr>
-      <tr><td>Octants <span class="badge badge-best">newest</span></td><td>2&times;4</td><td>Unicode 16 (2024)</td><td>8 sub-cells — <code>chafa</code> supports them</td></tr>
+      <tr><td>Octants <span class="badge badge-best">newest</span></td><td>2&times;4</td><td>Unicode 16 (2024)</td><td>8 sub-cells — <a href="https://github.com/hpjansson/chafa" target="_blank" rel="noopener">chafa</a> supports them</td></tr>
       <tr><td>Braille <code>&#10303;</code></td><td>2&times;4 dots</td><td>Unicode (Braille)</td><td>monochrome but dense — great for line art / plots</td></tr>
     </tbody>
   </table></div>
-  <div class="callout"><p><strong>The edge today:</strong> <code>chafa</code>'s support for <strong>octants</strong> (2&times;4, Unicode&nbsp;16) is the genuinely-latest move in pure-character rendering — finer grayscale than the sextants everyone copied in 2021. For monochrome density (and terminal <em>plots</em>), <strong>braille</strong> remains the portable trick.</p></div>
+  <div class="callout"><p><strong>The edge today:</strong> <a href="https://github.com/hpjansson/chafa" target="_blank" rel="noopener">chafa</a>'s support for <strong>octants</strong> (2&times;4, Unicode&nbsp;16) is the genuinely-latest move in pure-character rendering — finer grayscale than the sextants everyone copied in 2021. For monochrome density (and terminal <em>plots</em>), <strong>braille</strong> remains the portable trick.</p></div>
 
   <div class="section-head"><div class="chip">4</div><h2>The npm angle (a whole separate universe)</h2></div>
-  <p>Node didn't inherit the C lineage — it grew its own. And the scale is wild: these are <strong>monthly npm downloads</strong> next to GitHub stars. (For calibration, <code>chalk</code> alone pulls ~1.8&nbsp;<em>billion</em>/mo.)</p>
-  <div class="tbl-wrap"><table>
-    <thead><tr><th>Package</th><th>Role</th><th>Downloads/mo</th><th>Stars</th></tr></thead>
+  <p>Node didn't inherit the C lineage — it grew its own, and the scale is wild. <strong>Monthly npm downloads</strong> beside GitHub stars; both update live. (For calibration, <code>chalk</code> alone pulls ~1.8&nbsp;<em>billion</em>/mo.) Sortable.</p>
+  <div class="tbl-wrap"><table class="data-table">
+    <thead><tr><th>Package</th><th class="nosort">Role</th><th>Downloads/mo</th><th>Stars</th></tr></thead>
     <tbody>
-      <tr><td><strong>ink</strong> <span class="badge badge-rec">node leader</span></td><td>React-for-CLIs TUI framework</td><td class="num best">16.5M</td><td class="num">39.0k</td></tr>
-      <tr><td><strong>@xterm/xterm</strong></td><td>terminal <em>emulator</em> for the web (VS&nbsp;Code's)</td><td class="num">11.4M</td><td class="num">20.8k</td></tr>
-      <tr><td>blessed <span class="badge badge-warn">stale</span></td><td>classic full TUI lib (unmaintained since '24)</td><td class="num">5.9M</td><td class="num">11.9k</td></tr>
-      <tr><td>terminal-kit</td><td>batteries-included terminal toolkit (+images)</td><td class="num">1.15M</td><td class="num">3.4k</td></tr>
-      <tr><td><strong>terminal-image</strong> <span class="badge badge-ok">images</span></td><td>PNG/GIF → terminal (iTerm/Kitty + fallback)</td><td class="num">158k</td><td class="num">1.1k</td></tr>
-      <tr><td>figlet</td><td>FIGfont big-ASCII text</td><td class="num">8.3M</td><td class="num">—</td></tr>
-      <tr><td>gradient-string</td><td>gradient-colored text</td><td class="num">8.8M</td><td class="num">—</td></tr>
-      <tr><td>cfonts</td><td>blocky banner fonts</td><td class="num">2.0M</td><td class="num">—</td></tr>
-      <tr><td>drawille</td><td>braille drawing canvas</td><td class="num">2.2k</td><td class="num">—</td></tr>
-      <tr><td>node-sixel</td><td>Sixel encode/decode (powers xterm.js' addon)</td><td class="num">~low</td><td class="num">33</td></tr>
+      <tr data-repo="vadimdemedes/ink" data-npm="ink"><td><a href="https://github.com/vadimdemedes/ink" target="_blank" rel="noopener"><strong>ink</strong></a> <span class="badge badge-rec">node leader</span></td><td>React-for-CLIs TUI framework</td><td class="num js-dl" data-v="16482110">16.5M/mo</td><td class="num js-stars" data-v="38960">39.0k</td></tr>
+      <tr data-repo="xtermjs/xterm.js" data-npm="@xterm/xterm"><td><a href="https://github.com/xtermjs/xterm.js" target="_blank" rel="noopener"><strong>@xterm/xterm</strong></a></td><td>terminal <em>emulator</em> for the web (VS&nbsp;Code's)</td><td class="num js-dl" data-v="11388378">11.4M/mo</td><td class="num js-stars" data-v="20764">20.8k</td></tr>
+      <tr data-repo="chjj/blessed" data-npm="blessed"><td><a href="https://github.com/chjj/blessed" target="_blank" rel="noopener">blessed</a> <span class="badge badge-warn">stale</span></td><td>classic full TUI lib (unmaintained since '24)</td><td class="num js-dl" data-v="5902130">5.9M/mo</td><td class="num js-stars" data-v="11854">11.9k</td></tr>
+      <tr data-repo="cronvel/terminal-kit" data-npm="terminal-kit"><td><a href="https://github.com/cronvel/terminal-kit" target="_blank" rel="noopener">terminal-kit</a></td><td>batteries-included terminal toolkit (+images)</td><td class="num js-dl" data-v="1150975">1.2M/mo</td><td class="num js-stars" data-v="3364">3.4k</td></tr>
+      <tr data-repo="sindresorhus/terminal-image" data-npm="terminal-image"><td><a href="https://github.com/sindresorhus/terminal-image" target="_blank" rel="noopener"><strong>terminal-image</strong></a> <span class="badge badge-ok">images</span></td><td>PNG/GIF → terminal (iTerm/Kitty + fallback)</td><td class="num js-dl" data-v="157935">158k/mo</td><td class="num js-stars" data-v="1103">1.1k</td></tr>
+      <tr data-repo="patorjk/figlet.js" data-npm="figlet"><td><a href="https://github.com/patorjk/figlet.js" target="_blank" rel="noopener">figlet</a></td><td>FIGfont big-ASCII text</td><td class="num js-dl" data-v="8257654">8.3M/mo</td><td class="num js-stars" data-v="">—</td></tr>
+      <tr data-repo="bokub/gradient-string" data-npm="gradient-string"><td><a href="https://github.com/bokub/gradient-string" target="_blank" rel="noopener">gradient-string</a></td><td>gradient-colored text</td><td class="num js-dl" data-v="8751329">8.8M/mo</td><td class="num js-stars" data-v="">—</td></tr>
+      <tr data-repo="dominikwilkowski/cfonts" data-npm="cfonts"><td><a href="https://github.com/dominikwilkowski/cfonts" target="_blank" rel="noopener">cfonts</a></td><td>blocky banner fonts</td><td class="num js-dl" data-v="1960638">2.0M/mo</td><td class="num js-stars" data-v="">—</td></tr>
+      <tr data-repo="madbence/node-drawille" data-npm="drawille"><td><a href="https://github.com/madbence/node-drawille" target="_blank" rel="noopener">drawille</a></td><td>braille drawing canvas</td><td class="num js-dl" data-v="2248">2.2k/mo</td><td class="num js-stars" data-v="">—</td></tr>
+      <tr data-repo="jerch/node-sixel" data-npm="sixel"><td><a href="https://github.com/jerch/node-sixel" target="_blank" rel="noopener">node-sixel</a></td><td>Sixel encode/decode (powers xterm.js' addon)</td><td class="num js-dl" data-v="24534">24.5k/mo</td><td class="num js-stars" data-v="33">33</td></tr>
     </tbody>
   </table></div>
-  <div class="callout"><p><strong>Read of the npm scene:</strong> for <em>building a UI</em>, <strong><code>ink</code></strong> is the runaway winner (16.5M/mo, React mental-model). <code>blessed</code> is everywhere by inertia but is effectively abandoned — prefer <code>ink</code> or <code>terminal-kit</code> for new work. For just <em>putting an image on screen</em>, <strong><code>terminal-image</code></strong> (Sindre Sorhus) is the clean pick. And <code>@xterm/xterm</code> is a different beast entirely — it's the emulator you embed in a web app.</p></div>
+  <p class="fresh js-fresh">downloads &amp; ★ are pulled live.</p>
+  <div class="callout"><p><strong>Read of the npm scene:</strong> for <em>building a UI</em>, <a href="https://github.com/vadimdemedes/ink" target="_blank" rel="noopener"><strong>ink</strong></a> is the runaway winner (React mental-model). <a href="https://github.com/chjj/blessed" target="_blank" rel="noopener">blessed</a> is everywhere by inertia but effectively abandoned — prefer ink or <a href="https://github.com/cronvel/terminal-kit" target="_blank" rel="noopener">terminal-kit</a> for new work. For just <em>putting an image on screen</em>, <a href="https://github.com/sindresorhus/terminal-image" target="_blank" rel="noopener"><strong>terminal-image</strong></a> is the clean pick. And <a href="https://github.com/xtermjs/xterm.js" target="_blank" rel="noopener">@xterm/xterm</a> is a different beast — it's the emulator you embed in a web app.</p></div>
 
   <div class="section-head"><div class="chip">5</div><h2>The wider renaissance: modern TUI frameworks</h2></div>
-  <p>Here's the twist — if by <em class="q">"modern libcaca"</em> you actually mean <em class="q">"how do people draw rich graphical things in a terminal now,"</em> the center of gravity isn't an image library at all. It's the new wave of <strong>app frameworks</strong>, one per language, each massively starred:</p>
-  <div class="tbl-wrap"><table>
-    <thead><tr><th>Lang</th><th>Framework</th><th>Stars</th><th>Mental model</th></tr></thead>
+  <p>Here's the twist — if by <em class="q">"modern libcaca"</em> you mean <em class="q">"how do people draw rich things in a terminal now,"</em> the center of gravity isn't an image library at all. It's the new wave of <strong>app frameworks</strong>, each massively starred. Sortable.</p>
+  <div class="tbl-wrap"><table class="data-table">
+    <thead><tr><th>Lang</th><th>Framework</th><th>Stars</th><th>Updated</th><th class="nosort">Mental model</th></tr></thead>
     <tbody>
-      <tr><td>Go</td><td><strong>Bubble Tea</strong> + Lip Gloss <span class="num">(charmbracelet)</span></td><td class="num best">43.2k</td><td>Elm architecture (model/update/view); the "Charm" stack</td></tr>
-      <tr><td>Python</td><td><strong>Rich</strong> / <strong>Textual</strong> <span class="num">(Textualize)</span></td><td class="num best">57k&nbsp;/&nbsp;36k</td><td>rich-text renderables → full web-inspired TUI (+ runs in browser)</td></tr>
-      <tr><td>Rust</td><td><strong>Ratatui</strong></td><td class="num">21.1k</td><td>immediate-mode: redraw the whole UI each frame</td></tr>
-      <tr><td>Node</td><td><strong>Ink</strong></td><td class="num">39.0k</td><td>React components + flexbox (Yoga)</td></tr>
-      <tr><td>C</td><td><strong>Notcurses</strong></td><td class="num">4.6k</td><td>ncurses successor with multimedia blitting</td></tr>
+      <tr data-repo="charmbracelet/bubbletea"><td>Go</td><td><a href="https://github.com/charmbracelet/bubbletea" target="_blank" rel="noopener"><strong>Bubble Tea</strong></a></td><td class="num js-stars" data-v="43225">43.2k</td><td class="js-updated" data-v="">2026-06-15</td><td>Elm architecture (model/update/view); the "Charm" stack</td></tr>
+      <tr data-repo="charmbracelet/lipgloss"><td>Go</td><td><a href="https://github.com/charmbracelet/lipgloss" target="_blank" rel="noopener">Lip Gloss</a></td><td class="num js-stars" data-v="11442">11.4k</td><td class="js-updated" data-v="">2026-06-15</td><td>style &amp; layout definitions for Bubble Tea</td></tr>
+      <tr data-repo="ratatui/ratatui"><td>Rust</td><td><a href="https://github.com/ratatui/ratatui" target="_blank" rel="noopener"><strong>Ratatui</strong></a></td><td class="num js-stars" data-v="21119">21.1k</td><td class="js-updated" data-v="">2026-06-18</td><td>immediate-mode: redraw the whole UI each frame</td></tr>
+      <tr data-repo="Textualize/rich"><td>Python</td><td><a href="https://github.com/Textualize/rich" target="_blank" rel="noopener"><strong>Rich</strong></a></td><td class="num js-stars" data-v="56645">56.6k</td><td class="js-updated" data-v="">2026-06-15</td><td>rich-text renderables (tables, syntax, progress)</td></tr>
+      <tr data-repo="Textualize/textual"><td>Python</td><td><a href="https://github.com/Textualize/textual" target="_blank" rel="noopener"><strong>Textual</strong></a></td><td class="num js-stars" data-v="36304">36.3k</td><td class="js-updated" data-v="">2026-05-27</td><td>web-inspired app TUI; also runs in a browser</td></tr>
+      <tr data-repo="vadimdemedes/ink"><td>Node</td><td><a href="https://github.com/vadimdemedes/ink" target="_blank" rel="noopener"><strong>Ink</strong></a></td><td class="num js-stars" data-v="38960">39.0k</td><td class="js-updated" data-v="">2026-06-17</td><td>React components + flexbox (Yoga)</td></tr>
+      <tr data-repo="dankamongmen/notcurses"><td>C</td><td><a href="https://github.com/dankamongmen/notcurses" target="_blank" rel="noopener">Notcurses</a></td><td class="num js-stars" data-v="4578">4.6k</td><td class="js-updated" data-v="">2026-05-18</td><td>ncurses successor with multimedia blitting</td></tr>
     </tbody>
   </table></div>
-  <p>These are why the terminal feels alive again in 2026 — installers, AI coding agents, dashboards, git UIs. Several now speak <strong>"Mode 2026"</strong> (DEC synchronized output) to kill flicker on fast terminals; Ink&nbsp;v6.7+ and Bubble&nbsp;Tea&nbsp;v2 adopted it. Most can embed an image lib (e.g. <code>ratatui-image</code>, <code>textual-image</code>, <code>ink-image</code>) when they need a real picture.</p>
+  <p class="fresh js-fresh">★ &amp; "updated" are pulled live.</p>
+  <p>These are why the terminal feels alive again in 2026 — installers, AI coding agents, dashboards, git UIs. Several now speak <strong>"Mode 2026"</strong> (DEC synchronized output) to kill flicker; <a href="https://github.com/vadimdemedes/ink" target="_blank" rel="noopener">Ink</a>&nbsp;v6.7+ and <a href="https://github.com/charmbracelet/bubbletea" target="_blank" rel="noopener">Bubble&nbsp;Tea</a>&nbsp;v2 adopted it. Most embed an image lib (<code>ratatui-image</code>, <code>textual-image</code>, <code>ink-image</code>) when they need a real picture.</p>
 
   <div class="section-head"><div class="chip">6</div><h2>The enablers: terminals that can actually draw</h2></div>
-  <p>None of the pixel stuff matters if the emulator can't render it. Your renderer is only as good as the terminal under it.</p>
+  <p>None of the pixel stuff matters if the emulator can't render it. Your renderer is only as good as the terminal under it (hover &amp; click each):</p>
   <div class="vibes-grid">
-    <div class="vibe-card"><h4>Ghostty <span class="badge badge-rec">momentum</span></h4><p>Native Metal on macOS → 120Hz/ProMotion, adaptive sync, power-efficient. Kitty protocol. The 2025–26 darling.</p></div>
-    <div class="vibe-card"><h4>kitty</h4><p>GPU-accelerated; <em>origin</em> of the Kitty graphics protocol. The reference implementation.</p></div>
-    <div class="vibe-card"><h4>WezTerm</h4><p>The completist: the only terminal that speaks <em>all three</em> image protocols (Kitty + Sixel + iTerm2).</p></div>
-    <div class="vibe-card"><h4>Konsole / foot</h4><p>Konsole: Kitty + Sixel. foot: lean Wayland + Sixel. Solid Linux picks.</p></div>
-    <div class="vibe-card"><h4>Apple Terminal <span class="badge badge-dead">avoid</span></h4><p>No image protocol, and <em>still</em> no truecolor in 2026. The lowest common denominator — test your fallbacks here.</p></div>
+    <a class="vibe-card" href="https://ghostty.org" target="_blank" rel="noopener"><span class="go">&#8599;</span><h4>Ghostty <span class="badge badge-rec">momentum</span></h4><p>Native Metal on macOS → 120Hz/ProMotion, adaptive sync, power-efficient. Kitty protocol. The 2025–26 darling.</p></a>
+    <a class="vibe-card" href="https://sw.kovidgoyal.net/kitty/" target="_blank" rel="noopener"><span class="go">&#8599;</span><h4>kitty</h4><p>GPU-accelerated; <em>origin</em> of the Kitty graphics protocol. The reference implementation.</p></a>
+    <a class="vibe-card" href="https://wezterm.org" target="_blank" rel="noopener"><span class="go">&#8599;</span><h4>WezTerm</h4><p>The completist: the only terminal that speaks <em>all three</em> image protocols (Kitty + Sixel + iTerm2).</p></a>
+    <a class="vibe-card" href="https://konsole.kde.org" target="_blank" rel="noopener"><span class="go">&#8599;</span><h4>Konsole</h4><p>KDE's workhorse — Kitty + Sixel. Mature, configurable, a solid Linux default.</p></a>
+    <a class="vibe-card" href="https://codeberg.org/dnkl/foot" target="_blank" rel="noopener"><span class="go">&#8599;</span><h4>foot</h4><p>Lean, fast Wayland-native terminal with Sixel. The minimalist Linux pick.</p></a>
+    <a class="vibe-card" href="https://support.apple.com/guide/terminal/welcome/mac" target="_blank" rel="noopener"><span class="go">&#8599;</span><h4>Apple Terminal <span class="badge badge-dead">avoid</span></h4><p>No image protocol, and <em>still</em> no truecolor in 2026. The lowest common denominator — test your fallbacks here.</p></a>
   </div>
 
   <div class="section-head"><div class="chip">7</div><h2>My take &amp; guidance</h2></div>
@@ -294,90 +312,99 @@ tr:hover td{background:color-mix(in srgb,var(--accent) 4%,transparent)}
 <b>chafa</b> image.png
 <b>chafa</b> -f sixel movie.gif            <span class="c"># force a protocol</span>
 <b>chafa</b> --symbols octant photo.jpg    <span class="c"># force fanciest char art (Unicode 16)</span></pre>
-  <p>One tool, every output mode, actively developed. Don't overthink it.</p>
+  <p>One tool, every output mode, actively developed. Don't overthink it — <a href="https://github.com/hpjansson/chafa" target="_blank" rel="noopener">chafa</a> it is.</p>
 
   <h4>If you're embedding in an app</h4>
-  <p>Link <strong><code>libchafa</code></strong> (C/FFI) for image→cells. For a whole UI, use your language's framework — and let <em>it</em> own rendering rather than hand-rolling escape codes:</p>
+  <p>Link <code>libchafa</code> (C/FFI) for image→cells. For a whole UI, use your language's framework — and let <em>it</em> own rendering rather than hand-rolling escape codes:</p>
   <pre>go get github.com/charmbracelet/bubbletea   <span class="c"># Go</span>
 cargo add ratatui                            <span class="c"># Rust</span>
 pip install textual                          <span class="c"># Python</span>
 npm i ink react                              <span class="c"># Node</span>
 npm i terminal-image                         <span class="c"># Node, images only</span></pre>
 
-  <div class="callout"><p><strong>Where the puck is going:</strong> bet on the <strong>Kitty graphics protocol</strong> as primary, <strong>Sixel</strong> as fallback, <strong>octant/half-block</strong> Unicode as the floor. Ghostty's GPU-native rise is dragging "real graphics in the terminal" from novelty to expectation. The good news: <code>chafa</code> / <code>timg</code> / <code>terminal-image</code> already encode that exact ladder, so you usually inherit it for free.</p></div>
+  <div class="callout"><p><strong>Where the puck is going:</strong> bet on the <a href="https://sw.kovidgoyal.net/kitty/graphics-protocol/" target="_blank" rel="noopener">Kitty graphics protocol</a> as primary, <a href="https://en.wikipedia.org/wiki/Sixel" target="_blank" rel="noopener">Sixel</a> as fallback, octant/half-block Unicode as the floor. <a href="https://ghostty.org" target="_blank" rel="noopener">Ghostty</a>'s GPU-native rise is dragging "real graphics in the terminal" from novelty to expectation. The good news: <a href="https://github.com/hpjansson/chafa" target="_blank" rel="noopener">chafa</a> / <a href="https://github.com/hzeller/timg" target="_blank" rel="noopener">timg</a> / <a href="https://github.com/sindresorhus/terminal-image" target="_blank" rel="noopener">terminal-image</a> already encode that exact ladder, so you usually inherit it for free.</p></div>
 
-  <div class="callout callout-warn"><p><strong>The potholes nobody warns you about:</strong> &nbsp;(1) <strong>tmux &amp; SSH</strong> swallow image protocols unless you enable passthrough — your beautiful Kitty image becomes garbage mid-multiplexer. &nbsp;(2) <strong>Cell aspect ratio</strong> isn't 1:1 (~1:2 tall) — naive rendering squashes images; good tools correct for it. &nbsp;(3) <strong>Terminal detection is a swamp</strong> — never assume; probe (or lean on a lib that does). &nbsp;(4) <strong>Scrollback + images</strong> interact weirdly. &nbsp;(5) Test on <strong>Apple Terminal</strong> to see your true fallback.</p></div>
+  <div class="callout callout-warn"><p><strong>The potholes nobody warns you about:</strong> &nbsp;(1) <strong>tmux &amp; SSH</strong> swallow image protocols unless you enable passthrough. &nbsp;(2) <strong>Cell aspect ratio</strong> isn't 1:1 (~1:2 tall) — naive rendering squashes images. &nbsp;(3) <strong>Terminal detection is a swamp</strong> — never assume; probe (or lean on a lib). &nbsp;(4) <strong>Scrollback + images</strong> interact weirdly. &nbsp;(5) Test on <a href="https://support.apple.com/guide/terminal/welcome/mac" target="_blank" rel="noopener">Apple Terminal</a> to see your true fallback.</p></div>
 
-  <h4>So, the verdict in one breath</h4>
-  <p><strong>chafa</strong> is the modern <code>libcaca</code> — full stop, no asterisk. But "terminal rendering in 2026" is a much bigger story than image-to-ASCII: it's <strong>GPU terminals + Kitty/Sixel protocols</strong> for real pixels, the <strong>octant/braille</strong> Unicode ceiling for fallback, and a <strong>per-language TUI framework boom</strong> (Bubble&nbsp;Tea / Ratatui / Textual / Ink) that's where most actual "drawing" now happens. <code>libcaca</code> and <code>aalib</code> walked so this could run. 🫡</p>
+  <h4>The verdict in one breath</h4>
+  <p><a href="https://github.com/hpjansson/chafa" target="_blank" rel="noopener"><strong>chafa</strong></a> is the modern <code>libcaca</code> — full stop. But "terminal rendering in 2026" is a much bigger story: <strong>GPU terminals + Kitty/Sixel protocols</strong> for real pixels, the <strong>octant/braille</strong> Unicode ceiling for fallback, and a <strong>per-language TUI-framework boom</strong> (<a href="https://github.com/charmbracelet/bubbletea" target="_blank" rel="noopener">Bubble&nbsp;Tea</a> / <a href="https://github.com/ratatui/ratatui" target="_blank" rel="noopener">Ratatui</a> / <a href="https://github.com/Textualize/textual" target="_blank" rel="noopener">Textual</a> / <a href="https://github.com/vadimdemedes/ink" target="_blank" rel="noopener">Ink</a>) where most actual "drawing" now happens. libcaca and aalib walked so this could run. 🫡</p>
 
   <hr class="rule">
 
-  <div class="section-head"><div class="chip">&#9733;</div><h2>Sources</h2></div>
+  <div class="section-head"><div class="chip">&#9733;</div><h2>Sources &amp; method</h2></div>
   <p class="src">
-    GitHub (stars/activity, report date 2026-06-18): hpjansson/chafa · dankamongmen/notcurses · hzeller/timg · atanunq/viu · posva/catimg · stefanhaustein/TerminalImageViewer · TheZoraiz/ascii-image-converter · jstkdng/ueberzugpp · cacalabs/libcaca · vadimdemedes/ink · sindresorhus/terminal-image · cronvel/terminal-kit · chjj/blessed · xtermjs/xterm.js · jerch/node-sixel · ratatui/ratatui · charmbracelet/bubbletea · charmbracelet/lipgloss · Textualize/textual · Textualize/rich · AnonymouX47/term-image<br>
-    npm registry + api.npmjs.org (downloads, last 30 days).<br>
-    Background: <a href="https://hpjansson.org/chafa/">chafa — hpjansson.org</a> · <a href="https://akmatori.com/blog/terminal-graphics-protocols">Terminal Graphics Protocols — Akmatori</a> · <a href="https://sw.kovidgoyal.net/kitty/graphics-protocol/">Kitty graphics protocol spec</a> · <a href="https://github.com/rothgar/awesome-tuis">rothgar/awesome-tuis</a> · <a href="https://www.glukhov.org/post/2026/02/tui-frameworks-bubbletea-go-vs-ratatui-rust/">Bubble Tea vs Ratatui (2026)</a> · <a href="https://github.com/lnqs/textual-image">lnqs/textual-image</a> · <a href="https://dev.to/vibehackers/best-terminal-for-mac-in-2026-ghostty-kitty-wezterm-alacritty-warp-more-4pe6">Best terminal for Mac 2026</a>
+    Star counts &amp; "updated" dates are fetched <strong>live</strong> from the <a href="https://docs.github.com/rest" target="_blank" rel="noopener">GitHub REST API</a>; npm download counts from the <a href="https://github.com/npm/registry/blob/main/docs/download-counts.md" target="_blank" rel="noopener">npm registry API</a>. A scheduled GitHub Action re-bakes <code>data.json</code> daily, so the tables stay current with no per-visitor rate limits.<br><br>
+    Background reading: <a href="https://hpjansson.org/chafa/" target="_blank" rel="noopener">chafa — hpjansson.org</a> · <a href="https://akmatori.com/blog/terminal-graphics-protocols" target="_blank" rel="noopener">Terminal Graphics Protocols — Akmatori</a> · <a href="https://sw.kovidgoyal.net/kitty/graphics-protocol/" target="_blank" rel="noopener">Kitty graphics protocol spec</a> · <a href="https://github.com/rothgar/awesome-tuis" target="_blank" rel="noopener">rothgar/awesome-tuis</a> · <a href="https://www.glukhov.org/post/2026/02/tui-frameworks-bubbletea-go-vs-ratatui-rust/" target="_blank" rel="noopener">Bubble Tea vs Ratatui (2026)</a> · <a href="https://github.com/lnqs/textual-image" target="_blank" rel="noopener">lnqs/textual-image</a> · <a href="https://dev.to/vibehackers/best-terminal-for-mac-in-2026-ghostty-kitty-wezterm-alacritty-warp-more-4pe6" target="_blank" rel="noopener">Best terminal for Mac 2026</a>
   </p>
 
 </div>
 
 <script>
+/* ---- MARPAT camo background ---- */
 window.CAMO = (function(){
-  var canvas = document.getElementById('camo-canvas');
-  var ctx    = canvas.getContext('2d');
-  var SEED   = Math.floor(Math.random() * 0xFFFFFF);
-  function makeRNG(seed){ var s = seed >>> 0; return function(){ s = Math.imul(s,1664525)+1013904223>>>0; return s/4294967296; }; }
-  function buildNoise(rand, gw, gh){
-    var g = new Float32Array(gw*gh);
-    for (var i=0;i<g.length;i++) g[i]=rand();
-    return function(x,y){
-      var u=Math.max(0,Math.min(1,x))*(gw-1), v=Math.max(0,Math.min(1,y))*(gh-1);
-      var ix=Math.min(Math.floor(u),gw-2), iy=Math.min(Math.floor(v),gh-2);
-      var fx=u-ix, fy=v-iy, ux=fx*fx*(3-2*fx), uy=fy*fy*(3-2*fy);
-      var a=g[iy*gw+ix], b=g[iy*gw+ix+1], c=g[(iy+1)*gw+ix], d=g[(iy+1)*gw+ix+1];
-      return a*(1-ux)*(1-uy)+b*ux*(1-uy)+c*(1-ux)*uy+d*ux*uy;
-    };
-  }
-  var PALETTES = {
-    navy:   ['#040a1c','#0d2550','#2a5585','#5888a8','#a4c2d8'],
-    army:   ['#060a03','#1e2c0e','#485820','#82723e','#b8a872'],
-    arctic: ['#0c0e10','#2a3038','#566068','#96a0aa','#d0d8e0']
-  };
-  var PAL='navy', DENS=1, CELL={1:16,2:10,3:5};
+  var canvas=document.getElementById('camo-canvas'), ctx=canvas.getContext('2d'), SEED=Math.floor(Math.random()*0xFFFFFF);
+  function makeRNG(seed){ var s=seed>>>0; return function(){ s=Math.imul(s,1664525)+1013904223>>>0; return s/4294967296; }; }
+  function buildNoise(rand,gw,gh){ var g=new Float32Array(gw*gh); for(var i=0;i<g.length;i++)g[i]=rand();
+    return function(x,y){ var u=Math.max(0,Math.min(1,x))*(gw-1),v=Math.max(0,Math.min(1,y))*(gh-1),ix=Math.min(Math.floor(u),gw-2),iy=Math.min(Math.floor(v),gh-2),fx=u-ix,fy=v-iy,ux=fx*fx*(3-2*fx),uy=fy*fy*(3-2*fy),a=g[iy*gw+ix],b=g[iy*gw+ix+1],c=g[(iy+1)*gw+ix],d=g[(iy+1)*gw+ix+1]; return a*(1-ux)*(1-uy)+b*ux*(1-uy)+c*(1-ux)*uy+d*ux*uy; }; }
+  var PALETTES={navy:['#040a1c','#0d2550','#2a5585','#5888a8','#a4c2d8'],army:['#060a03','#1e2c0e','#485820','#82723e','#b8a872'],arctic:['#0c0e10','#2a3038','#566068','#96a0aa','#d0d8e0']};
+  var PAL='navy',DENS=1,CELL={1:16,2:10,3:5};
   function hexRGB(h){ return [parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)]; }
-  function draw(){
-    var W=canvas.width=window.innerWidth, H=canvas.height=window.innerHeight;
-    var pal=PALETTES[PAL], cell=CELL[DENS]||10, GW=Math.ceil(W/cell), GH=Math.ceil(H/cell);
-    var mw=Math.max(3,Math.round(W/280)), mh=Math.max(3,Math.round(H/280));
-    var macro=buildNoise(makeRNG(SEED),mw,mh), warpNX=buildNoise(makeRNG(SEED^0xF0F0F0),mw,mh), warpNY=buildNoise(makeRNG(SEED^0x5A5A5A),mw,mh);
-    var tw=Math.max(4,Math.round(W/50)), th=Math.max(4,Math.round(H/50)), mid=buildNoise(makeRNG(SEED^0xABCDEF),tw,th);
-    var grain=makeRNG(SEED^0xDEAD), rgbs=pal.map(hexRGB), n=rgbs.length;
-    var off=document.createElement('canvas'); off.width=GW; off.height=GH;
-    var oc=off.getContext('2d'), id=oc.createImageData(GW,GH), d=id.data;
-    for (var gy=0;gy<GH;gy++){ var ny=gy/GH;
-      for (var gx=0;gx<GW;gx++){ var nx=gx/GW;
-        var wx=(warpNX(nx,ny)-0.5)*0.42, wy=(warpNY(nx,ny)-0.5)*0.42;
-        var mv=macro(Math.max(0,Math.min(1,nx+wx)),Math.max(0,Math.min(1,ny+wy))), tv=mid(nx,ny), gv=grain();
-        var v=mv*0.62+tv*0.26+gv*0.12, band=Math.min(n-1,Math.floor(v*n)), rgb=rgbs[band], idx=(gy*GW+gx)*4;
-        d[idx]=rgb[0]; d[idx+1]=rgb[1]; d[idx+2]=rgb[2]; d[idx+3]=255;
-      }
-    }
-    oc.putImageData(id,0,0); ctx.imageSmoothingEnabled=false; ctx.drawImage(off,0,0,W,H);
-  }
-  draw(); var rt;
-  window.addEventListener('resize', function(){ clearTimeout(rt); rt=setTimeout(draw,200); });
+  function draw(){ var W=canvas.width=window.innerWidth,H=canvas.height=window.innerHeight,pal=PALETTES[PAL],cell=CELL[DENS]||10,GW=Math.ceil(W/cell),GH=Math.ceil(H/cell);
+    var mw=Math.max(3,Math.round(W/280)),mh=Math.max(3,Math.round(H/280)),macro=buildNoise(makeRNG(SEED),mw,mh),warpNX=buildNoise(makeRNG(SEED^0xF0F0F0),mw,mh),warpNY=buildNoise(makeRNG(SEED^0x5A5A5A),mw,mh);
+    var tw=Math.max(4,Math.round(W/50)),th=Math.max(4,Math.round(H/50)),mid=buildNoise(makeRNG(SEED^0xABCDEF),tw,th),grain=makeRNG(SEED^0xDEAD),rgbs=pal.map(hexRGB),n=rgbs.length;
+    var off=document.createElement('canvas'); off.width=GW; off.height=GH; var oc=off.getContext('2d'),id=oc.createImageData(GW,GH),d=id.data;
+    for(var gy=0;gy<GH;gy++){ var ny=gy/GH; for(var gx=0;gx<GW;gx++){ var nx=gx/GW,wx=(warpNX(nx,ny)-0.5)*0.42,wy=(warpNY(nx,ny)-0.5)*0.42,mv=macro(Math.max(0,Math.min(1,nx+wx)),Math.max(0,Math.min(1,ny+wy))),tv=mid(nx,ny),gv=grain(),v=mv*0.62+tv*0.26+gv*0.12,band=Math.min(n-1,Math.floor(v*n)),rgb=rgbs[band],idx=(gy*GW+gx)*4; d[idx]=rgb[0];d[idx+1]=rgb[1];d[idx+2]=rgb[2];d[idx+3]=255; } }
+    oc.putImageData(id,0,0); ctx.imageSmoothingEnabled=false; ctx.drawImage(off,0,0,W,H); }
+  draw(); var rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(draw,200); });
   return { setPalette:function(name){ PAL=name; draw(); }, setDensity:function(d){ DENS=+d; draw(); } };
 })();
+/* ---- controls ---- */
 (function(){
-  var html=document.documentElement, KT='fnm-theme', KS='fnm-size', KD='fnm-density';
-  function applyTheme(t){ html.setAttribute('data-theme',t); document.querySelectorAll('.tb').forEach(function(b){ var a=b.dataset.theme===t; b.classList.toggle('on',a); b.setAttribute('aria-pressed',String(a)); }); if(window.CAMO) window.CAMO.setPalette(t); try{ localStorage.setItem(KT,t); }catch(e){} }
-  function applySize(s){ html.setAttribute('data-size',s); document.querySelectorAll('.sb').forEach(function(b){ var a=b.dataset.size===s; b.classList.toggle('on',a); b.setAttribute('aria-pressed',String(a)); }); try{ localStorage.setItem(KS,s); }catch(e){} }
-  function applyDensity(d){ d=String(d); document.querySelectorAll('.db').forEach(function(b){ var a=b.dataset.density===d; b.classList.toggle('on',a); b.setAttribute('aria-pressed',String(a)); }); if(window.CAMO) window.CAMO.setDensity(+d); try{ localStorage.setItem(KD,d); }catch(e){} }
-  try{ var st=localStorage.getItem(KT), ss=localStorage.getItem(KS), sd=localStorage.getItem(KD); if(st) applyTheme(st); if(ss) applySize(ss); if(sd) applyDensity(sd); }catch(e){}
-  document.querySelectorAll('.tb').forEach(function(b){ b.addEventListener('click', function(){ applyTheme(b.dataset.theme); }); });
-  document.querySelectorAll('.sb').forEach(function(b){ b.addEventListener('click', function(){ applySize(b.dataset.size); }); });
-  document.querySelectorAll('.db').forEach(function(b){ b.addEventListener('click', function(){ applyDensity(b.dataset.density); }); });
+  var html=document.documentElement,KT='fnm-theme',KS='fnm-size',KD='fnm-density';
+  function applyTheme(t){ html.setAttribute('data-theme',t); document.querySelectorAll('.tb').forEach(function(b){ var a=b.dataset.theme===t; b.classList.toggle('on',a); b.setAttribute('aria-pressed',String(a)); }); if(window.CAMO)window.CAMO.setPalette(t); try{localStorage.setItem(KT,t);}catch(e){} }
+  function applySize(s){ html.setAttribute('data-size',s); document.querySelectorAll('.sb').forEach(function(b){ var a=b.dataset.size===s; b.classList.toggle('on',a); b.setAttribute('aria-pressed',String(a)); }); try{localStorage.setItem(KS,s);}catch(e){} }
+  function applyDensity(d){ d=String(d); document.querySelectorAll('.db').forEach(function(b){ var a=b.dataset.density===d; b.classList.toggle('on',a); b.setAttribute('aria-pressed',String(a)); }); if(window.CAMO)window.CAMO.setDensity(+d); try{localStorage.setItem(KD,d);}catch(e){} }
+  try{ var st=localStorage.getItem(KT),ss=localStorage.getItem(KS),sd=localStorage.getItem(KD); if(st)applyTheme(st); if(ss)applySize(ss); if(sd)applyDensity(sd); }catch(e){}
+  document.querySelectorAll('.tb').forEach(function(b){ b.addEventListener('click',function(){ applyTheme(b.dataset.theme); }); });
+  document.querySelectorAll('.sb').forEach(function(b){ b.addEventListener('click',function(){ applySize(b.dataset.size); }); });
+  document.querySelectorAll('.db').forEach(function(b){ b.addEventListener('click',function(){ applyDensity(b.dataset.density); }); });
+})();
+/* ---- live data (data.json, baked daily by a GitHub Action) ---- */
+(function(){
+  function fmt(n){ n=+n; if(n>=1e9)return (n/1e9).toFixed(1).replace(/\.0$/,'')+'B'; if(n>=1e6)return (n/1e6).toFixed(1).replace(/\.0$/,'')+'M'; if(n>=1e3)return (n/1e3).toFixed(1).replace(/\.0$/,'')+'k'; return ''+n; }
+  function ago(iso){ var t=Date.parse(iso); if(isNaN(t))return ''; var s=(Date.now()-t)/1000,day=86400; if(s<day)return 'today'; var dd=Math.floor(s/day); if(dd<30)return dd+'d ago'; var mo=Math.floor(dd/30); if(mo<12)return mo+'mo ago'; return Math.floor(mo/12)+'y ago'; }
+  fetch('data.json',{cache:'no-store'}).then(function(r){ return r.ok?r.json():null; }).then(function(data){
+    if(!data) return;
+    document.querySelectorAll('tr[data-repo]').forEach(function(tr){
+      var d=data.repos&&data.repos[tr.getAttribute('data-repo')]; if(!d)return;
+      var s=tr.querySelector('.js-stars'); if(s&&d.stars!=null){ s.textContent=fmt(d.stars); s.setAttribute('data-v',d.stars); }
+      var u=tr.querySelector('.js-updated'); if(u&&d.pushed){ u.textContent=ago(d.pushed); u.setAttribute('data-v',Date.parse(d.pushed)); u.title='last push '+d.pushed.slice(0,10); }
+    });
+    document.querySelectorAll('tr[data-npm]').forEach(function(tr){
+      var d=data.npm&&data.npm[tr.getAttribute('data-npm')]; if(!d||d.downloads==null)return;
+      var dl=tr.querySelector('.js-dl'); if(dl){ dl.textContent=fmt(d.downloads)+'/mo'; dl.setAttribute('data-v',d.downloads); }
+    });
+    if(data.generated){ document.querySelectorAll('.js-fresh').forEach(function(e){ e.textContent='live · GitHub + npm · refreshed '+ago(data.generated); e.title=data.generated; }); }
+  }).catch(function(){});
+})();
+/* ---- click-to-sort on .data-table headers ---- */
+(function(){
+  function parseNum(t){ t=(t||'').replace(/[,★~]/g,'').trim(); var m=t.match(/^([\d.]+)\s*([kKmMbB])?/); if(!m)return NaN; var n=parseFloat(m[1]),u=(m[2]||'').toLowerCase(); if(u==='k')n*=1e3; else if(u==='m')n*=1e6; else if(u==='b')n*=1e9; return n; }
+  function val(td){ var v=td.getAttribute('data-v'); if(v!==null&&v!=='')return parseFloat(v); var n=parseNum(td.textContent); return isNaN(n)?td.textContent.trim().toLowerCase():n; }
+  document.querySelectorAll('table.data-table').forEach(function(table){
+    var head=table.tHead; if(!head)return; var hr=head.rows[0];
+    [].forEach.call(hr.cells,function(th,idx){
+      if(th.classList.contains('nosort'))return;
+      th.classList.add('sortable');
+      th.addEventListener('click',function(){
+        var tb=table.tBodies[0], rows=[].slice.call(tb.rows), asc=th.getAttribute('data-dir')!=='asc';
+        rows.sort(function(a,b){ var x=val(a.cells[idx]),y=val(b.cells[idx]); if(x<y)return asc?-1:1; if(x>y)return asc?1:-1; return 0; });
+        rows.forEach(function(r){ tb.appendChild(r); });
+        [].forEach.call(hr.cells,function(c){ c.removeAttribute('data-dir'); });
+        th.setAttribute('data-dir',asc?'asc':'desc');
+      });
+    });
+  });
 })();
 </script>
 </body>
