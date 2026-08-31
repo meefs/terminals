@@ -1,20 +1,20 @@
 {
- "generated": "2026-08-30T12:59:32Z",
+ "generated": "2026-08-31T15:11:05Z",
  "repos": {
   "hpjansson/chafa": {
-   "stars": 5188,
+   "stars": 5192,
    "pushed": "2026-08-30T12:03:37Z"
   },
   "dankamongmen/notcurses": {
-   "stars": 4681,
+   "stars": 4682,
    "pushed": "2026-05-18T14:02:16Z"
   },
   "hzeller/timg": {
-   "stars": 2736,
+   "stars": 2738,
    "pushed": "2026-08-05T11:13:52Z"
   },
   "atanunq/viu": {
-   "stars": 3265,
+   "stars": 3268,
    "pushed": "2025-12-15T10:20:59Z"
   },
   "posva/catimg": {
@@ -26,7 +26,7 @@
    "pushed": "2026-08-03T01:19:25Z"
   },
   "TheZoraiz/ascii-image-converter": {
-   "stars": 3501,
+   "stars": 3503,
    "pushed": "2024-04-14T19:34:21Z"
   },
   "jstkdng/ueberzugpp": {
@@ -38,15 +38,15 @@
    "pushed": "2026-08-14T16:01:19Z"
   },
   "vadimdemedes/ink": {
-   "stars": 39760,
+   "stars": 39761,
    "pushed": "2026-08-25T18:52:24Z"
   },
   "xtermjs/xterm.js": {
-   "stars": 21111,
-   "pushed": "2026-08-28T20:15:10Z"
+   "stars": 21112,
+   "pushed": "2026-08-30T20:31:36Z"
   },
   "chjj/blessed": {
-   "stars": 11882,
+   "stars": 11883,
    "pushed": "2024-03-22T10:02:56Z"
   },
   "cronvel/terminal-kit": {
@@ -58,16 +58,16 @@
    "pushed": "2026-07-09T10:04:34Z"
   },
   "patorjk/figlet.js": {
-   "stars": 3017,
+   "stars": 3019,
    "pushed": "2026-08-10T23:11:23Z"
   },
   "bokub/gradient-string": {
-   "stars": 1198,
+   "stars": 1197,
    "pushed": "2024-10-12T08:36:03Z"
   },
   "dominikwilkowski/cfonts": {
    "stars": 1887,
-   "pushed": "2026-08-30T08:46:44Z"
+   "pushed": "2026-08-31T06:50:32Z"
   },
   "madbence/node-drawille": {
    "stars": 1031,
@@ -78,56 +78,56 @@
    "pushed": "2026-08-20T19:38:07Z"
   },
   "charmbracelet/bubbletea": {
-   "stars": 44690,
-   "pushed": "2026-08-19T15:32:03Z"
+   "stars": 44718,
+   "pushed": "2026-08-31T11:16:55Z"
   },
   "charmbracelet/lipgloss": {
-   "stars": 11769,
+   "stars": 11776,
    "pushed": "2026-08-16T00:16:03Z"
   },
   "ratatui/ratatui": {
-   "stars": 22447,
+   "stars": 22458,
    "pushed": "2026-08-29T21:33:23Z"
   },
   "Textualize/rich": {
-   "stars": 57276,
+   "stars": 57290,
    "pushed": "2026-06-23T03:10:19Z"
   },
   "Textualize/textual": {
-   "stars": 37090,
+   "stars": 37102,
    "pushed": "2026-07-11T06:02:34Z"
   },
   "ohmyzsh/ohmyzsh": {
-   "stars": 189451,
-   "pushed": "2026-08-30T12:53:37Z"
+   "stars": 189474,
+   "pushed": "2026-08-30T17:16:07Z"
   },
   "romkatv/powerlevel10k": {
-   "stars": 54993,
+   "stars": 54999,
    "pushed": "2026-08-15T09:23:06Z"
   },
   "starship/starship": {
-   "stars": 59668,
-   "pushed": "2026-08-28T19:27:16Z"
+   "stars": 59691,
+   "pushed": "2026-08-31T10:34:59Z"
   },
   "alacritty/alacritty": {
-   "stars": 65558,
+   "stars": 65569,
    "pushed": "2026-08-26T04:17:18Z"
   },
   "ghostty-org/ghostty": {
-   "stars": 60462,
-   "pushed": "2026-08-30T09:52:23Z"
+   "stars": 60509,
+   "pushed": "2026-08-31T13:49:17Z"
   },
   "kovidgoyal/kitty": {
-   "stars": 34684,
-   "pushed": "2026-08-30T02:58:08Z"
+   "stars": 34710,
+   "pushed": "2026-08-31T05:06:52Z"
   },
   "wezterm/wezterm": {
-   "stars": 28636,
-   "pushed": "2026-08-29T17:42:57Z"
+   "stars": 28662,
+   "pushed": "2026-08-31T05:17:18Z"
   },
   "warpdotdev/warp": {
-   "stars": 64654,
-   "pushed": "2026-08-30T10:07:08Z"
+   "stars": 64680,
+   "pushed": "2026-08-31T15:10:51Z"
   }
  },
  "npm": {
