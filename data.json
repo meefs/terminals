@@ -1,8 +1,8 @@
 {
- "generated": "2026-09-21T14:19:14Z",
+ "generated": "2026-09-22T12:40:53Z",
  "repos": {
   "hpjansson/chafa": {
-   "stars": 5264,
+   "stars": 5265,
    "pushed": "2026-09-19T16:11:21Z"
   },
   "dankamongmen/notcurses": {
@@ -10,11 +10,11 @@
    "pushed": "2026-05-18T14:02:16Z"
   },
   "hzeller/timg": {
-   "stars": 2758,
+   "stars": 2760,
    "pushed": "2026-08-05T11:13:52Z"
   },
   "atanunq/viu": {
-   "stars": 3280,
+   "stars": 3281,
    "pushed": "2025-12-15T10:20:59Z"
   },
   "posva/catimg": {
@@ -26,11 +26,11 @@
    "pushed": "2026-09-03T01:34:34Z"
   },
   "TheZoraiz/ascii-image-converter": {
-   "stars": 3529,
+   "stars": 3530,
    "pushed": "2024-04-14T19:34:21Z"
   },
   "jstkdng/ueberzugpp": {
-   "stars": 1325,
+   "stars": 1324,
    "pushed": "2026-09-20T04:12:03Z"
   },
   "cacalabs/libcaca": {
@@ -38,7 +38,7 @@
    "pushed": "2026-08-14T16:01:19Z"
   },
   "vadimdemedes/ink": {
-   "stars": 39915,
+   "stars": 39924,
    "pushed": "2026-09-21T05:22:19Z"
   },
   "xtermjs/xterm.js": {
@@ -50,7 +50,7 @@
    "pushed": "2024-03-22T10:02:56Z"
   },
   "cronvel/terminal-kit": {
-   "stars": 3377,
+   "stars": 3376,
    "pushed": "2026-07-19T15:51:18Z"
   },
   "sindresorhus/terminal-image": {
@@ -58,7 +58,7 @@
    "pushed": "2026-07-09T10:04:34Z"
   },
   "patorjk/figlet.js": {
-   "stars": 3020,
+   "stars": 3021,
    "pushed": "2026-09-19T21:24:28Z"
   },
   "bokub/gradient-string": {
@@ -67,7 +67,7 @@
   },
   "dominikwilkowski/cfonts": {
    "stars": 1894,
-   "pushed": "2026-09-21T07:55:31Z"
+   "pushed": "2026-09-22T03:51:33Z"
   },
   "madbence/node-drawille": {
    "stars": 1032,
@@ -78,88 +78,88 @@
    "pushed": "2026-08-20T19:38:07Z"
   },
   "charmbracelet/bubbletea": {
-   "stars": 45067,
-   "pushed": "2026-09-17T08:08:32Z"
+   "stars": 45077,
+   "pushed": "2026-09-22T11:00:49Z"
   },
   "charmbracelet/lipgloss": {
    "stars": 11857,
    "pushed": "2026-09-13T00:39:21Z"
   },
   "ratatui/ratatui": {
-   "stars": 22686,
-   "pushed": "2026-09-20T16:40:00Z"
+   "stars": 22696,
+   "pushed": "2026-09-21T15:43:44Z"
   },
   "Textualize/rich": {
-   "stars": 57412,
+   "stars": 57413,
    "pushed": "2026-06-23T03:10:19Z"
   },
   "Textualize/textual": {
-   "stars": 37300,
+   "stars": 37302,
    "pushed": "2026-07-11T06:02:34Z"
   },
   "ohmyzsh/ohmyzsh": {
-   "stars": 189864,
-   "pushed": "2026-09-20T15:14:29Z"
+   "stars": 189879,
+   "pushed": "2026-09-22T10:08:40Z"
   },
   "romkatv/powerlevel10k": {
-   "stars": 55135,
+   "stars": 55137,
    "pushed": "2026-09-14T08:10:04Z"
   },
   "starship/starship": {
-   "stars": 59975,
-   "pushed": "2026-09-21T10:15:09Z"
+   "stars": 59990,
+   "pushed": "2026-09-21T22:26:18Z"
   },
   "alacritty/alacritty": {
-   "stars": 65779,
+   "stars": 65785,
    "pushed": "2026-08-31T21:11:12Z"
   },
   "ghostty-org/ghostty": {
-   "stars": 61394,
-   "pushed": "2026-09-21T14:10:45Z"
+   "stars": 61421,
+   "pushed": "2026-09-22T08:04:17Z"
   },
   "kovidgoyal/kitty": {
-   "stars": 35002,
-   "pushed": "2026-09-21T08:45:43Z"
+   "stars": 35023,
+   "pushed": "2026-09-22T12:08:27Z"
   },
   "wezterm/wezterm": {
-   "stars": 28974,
+   "stars": 28982,
    "pushed": "2026-09-21T05:17:28Z"
   },
   "warpdotdev/warp": {
-   "stars": 65118,
-   "pushed": "2026-09-21T14:14:28Z"
+   "stars": 65125,
+   "pushed": "2026-09-22T11:09:43Z"
   }
  },
  "npm": {
   "ink": {
-   "downloads": 23271706
+   "downloads": 24080358
   },
   "@xterm/xterm": {
-   "downloads": 15072673
+   "downloads": 15469296
   },
   "blessed": {
-   "downloads": 4651088
+   "downloads": 4838840
   },
   "terminal-kit": {
-   "downloads": 714300
+   "downloads": 728587
   },
   "terminal-image": {
-   "downloads": 375727
+   "downloads": 381982
   },
   "figlet": {
-   "downloads": 8610581
+   "downloads": 8921316
   },
   "gradient-string": {
-   "downloads": 8108085
+   "downloads": 8302950
   },
   "cfonts": {
-   "downloads": 2732796
+   "downloads": 2868168
   },
   "drawille": {
-   "downloads": 2039
+   "downloads": 2122
   },
   "sixel": {
-   "downloads": 26113
+   "downloads": 27151
   }
  }
 }
